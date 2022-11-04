@@ -13,6 +13,10 @@ async function seed() {
         description:
           "It has a somewhat gritty texture and a strong umami taste.",
       },
+      {
+        title: "Gouda",
+        description: "It honks.",
+      },
     ],
     { validate: true }
   );
@@ -25,6 +29,21 @@ async function seed() {
           "An affair of French gastrononic cheeses for you to degust.",
         rating: -1,
       },
+      {
+        type: "softCheese",
+        description: "Horrid squidgy soft cheeses that absolutely honk.",
+        rating: -1,
+      },
+      {
+        type: "cranberryCheese",
+        description: "Lorem knftn.",
+        rating: -1,
+      },
+      {
+        type: "holyCheese",
+        description: "Lorem kgsnosgnosgno.",
+        rating: -1,
+      },
     ],
     { validate: true }
   );
@@ -34,6 +53,10 @@ async function seed() {
       {
         name: "Felix",
         email: "felix@yahoo.com",
+      },
+      {
+        name: "Saul",
+        email: "saul@yahoo.com",
       },
     ],
     { validate: true }

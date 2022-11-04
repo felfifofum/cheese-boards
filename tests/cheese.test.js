@@ -2,12 +2,12 @@ const { Cheese } = require("../models/");
 const db = require("cheese-boards/db/db.js");
 const seed = require("cheese-boards/db/seed.js");
 
-describe("The Cheese table", () => {
-  beforeEach(async () => {
-    await Cheese.sync({ force: true });
-    await seed();
-  });
+beforeEach(async () => {
+  await Cheese.sync({ force: true });
+  await seed();
+});
 
+describe("The Cheese table", () => {
   test("Propensity to make an instance of Cheese i.e. a new cheese has title and desc", async () => {
     await Cheese.create({
       title: "Parmesan",
