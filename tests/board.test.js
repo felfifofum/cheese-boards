@@ -1,6 +1,7 @@
-const { Board, User, Cheese } = require("../models/");
+const { Board, User, Cheese } = require("../models");
 const db = require("cheese-boards/db/db.js");
 const seed = require("cheese-boards/db/seed.js");
+
 beforeEach(async () => {
   await Board.sync({ force: true });
   await seed();
@@ -62,13 +63,13 @@ describe("The Board table", () => {
 });
 
 // Associations testing
-// One-to-many
+// One-to-many: One User for many Boards
 describe("The model associations", () => {
   test("allow for a hungry user to have one board", async () => {
     // Call a board so can use it to test user
     const boards = await Board.findAll();
 
-    // call a user + including the class Board - so test user can include the board methods
+    // call a user + (eager loading) including the class Board - so test user can include the board methods
 
     const testUser = await User.findOne({
       where: {
@@ -86,7 +87,7 @@ describe("The model associations", () => {
   test("Should add many boards to a hungry user", async () => {
     const boards = await Board.findAll();
 
-    // Eager loading - the Board or whatever has to be related to the thing
+    // Eager loading - the Board or whatever has to be re lated to the thing
     const testUser = await User.findOne({
       where: {
         name: "Felix",
@@ -99,7 +100,7 @@ describe("The model associations", () => {
     expect(await testUser.countBoards()).toBe(2);
   });
 
-  // Many-to-many
+  // Many-to-many: Board can have many cheeses and vice versa
   test("many boards can have many cheeses", async () => {
     // const boards = await Board.findAll();
     // const boardCheeses = await boards.getCheeses();

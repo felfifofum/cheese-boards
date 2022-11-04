@@ -1,4 +1,4 @@
-const { Cheese } = require("../models/");
+const { Cheese } = require("../models");
 const db = require("cheese-boards/db/db.js");
 const seed = require("cheese-boards/db/seed.js");
 
